@@ -1,2 +1,3 @@
-# Notes-C
-Data Structures and algorithms in C language
+# Prepared By - Mayank Walia
+
+[Lecture 1](/Notes/Lecture-1.md)
