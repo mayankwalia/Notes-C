@@ -28,6 +28,7 @@ int main(void) {
   return 1;
 }
 ```
+
 - Solution for Question 2 
 ```
 #include <stdio.h> //c preprocessor (printf)
@@ -46,6 +47,7 @@ int main(void) {
   printf("Entered elements are:\n");
   
 ```
+
 - Solution for Question 3
 ```
 #include <stdio.h> //c preprocessor (printf)
@@ -69,6 +71,7 @@ int main(void) {
 }
   
 ```
+
 - Solution for Question 4
 ```
 #include <stdio.h> //c preprocessor (printf)
@@ -116,7 +119,6 @@ int main(){
   return 1;
 }
 ```
-
 
 ## WAP to find average and sum of three numbers entered through keyboard.
 ```
