@@ -18,7 +18,8 @@ printf("%d",variable_name);
 
 ---
 ## Solutions
-- Solution for Question 1 
+### Solution for Question 1 
+
 ```
 #include <stdio.h> //c preprocessor (printf)
 // #include <conio.h> //for getch function
@@ -29,7 +30,8 @@ int main(void) {
 }
 ```
 
-- Solution for Question 2 
+### Solution for Question 2 
+
 ```
 #include <stdio.h> //c preprocessor (printf)
 // #include <conio.h> //for getch functions
@@ -48,7 +50,8 @@ int main(void) {
   
 ```
 
-- Solution for Question 3
+### Solution for Question 3
+
 ```
 #include <stdio.h> //c preprocessor (printf)
 // #include <conio.h> //for getch function
@@ -69,10 +72,10 @@ int main(void) {
   }
   return 1;
 }
-  
 ```
 
-- Solution for Question 4
+### Solution for Question 4
+
 ```
 #include <stdio.h> //c preprocessor (printf)
 // #include <conio.h> //for getch function
@@ -99,6 +102,7 @@ int main(void) {
 # Assignments
 
 ## WAP to create array of 10 elements. print the square of each number.
+
 ```
 #include<stdio.h>
 int main(){
@@ -121,6 +125,7 @@ int main(){
 ```
 
 ## WAP to find average and sum of three numbers entered through keyboard.
+
 ```
 #include<stdio.h>
 int main(){
