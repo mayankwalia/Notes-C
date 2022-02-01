@@ -1,4 +1,4 @@
-# DSA in C Notes :notebook_with_decorative_cover:</align>
+# DSA in C Notes 
 
 ---
 <p align="right"> Prepared By - Mayank Walia</p></align>
@@ -7,4 +7,4 @@
 [Lecture 1](/Notes/Lecture-1.md)
 
 
-<p>Want to Contribute :pencil:? Fill up this <a href="https://forms.gle/ZgpJzQtSPwYMsTUJA">form</a> </p>
+<p>Want to Contribute? Fill up this <a href="https://forms.gle/ZgpJzQtSPwYMsTUJA">form</a> </p>
