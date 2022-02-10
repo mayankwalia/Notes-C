@@ -1,7 +1,7 @@
 # Searching
 ## Binary Search
 
-```
+```C
 #include <stdio.h>
 int binarysearch(int p[], int i, int j, int x) {
   int mid;
