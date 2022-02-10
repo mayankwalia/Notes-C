@@ -1,4 +1,34 @@
 # Searching
+
+## Linear Search
+
+```C
+#include <stdio.h>
+int linearsearch(int p[], int n, int x) {
+  int i;
+  for (i = 0; i <= n; i++) {
+    if (p[i] == x)
+      return i;
+  }
+  return -1;
+}
+int main(void) {
+  int A[10], i, loc, item;
+  printf("Enter 10 elements in the array\n");
+  for (i = 0; i < 10; i++) {
+    scanf("%d", &A[i]);
+  }
+  printf("Enter the element to be searched (desired element)\n");
+  scanf("%d", &item);
+  loc = linearsearch(A, 10, item);
+  if (loc == -1)
+    printf("Element is not found!\n");
+  else
+    printf("Element is found at %dth location\n", loc + 1);
+  return 0;
+}
+```
+
 ## Binary Search
 
 ```C
