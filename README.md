@@ -9,6 +9,6 @@
 <br>
 [Searching](/Notes/Searching/Readme.md)
 <br>
-[Sorting](/Notes-C/tree/main/Notes/Sorting/Readme.md)
+[Sorting](/Notes/Sorting/Readme.md)
 
 Want to Contribute? Fill up this <a href="https://forms.gle/ZgpJzQtSPwYMsTUJA">form</a>
