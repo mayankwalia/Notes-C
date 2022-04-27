@@ -4,7 +4,7 @@
 - Selection Sort
 - Bubble Sort
 
-```
+```C
 #include<stdio.h>
 #include<conio.h>
 void Insertion_Sort(int A[],int x){
@@ -76,7 +76,7 @@ void main(){
 
 
 
-```
+```C
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -147,85 +147,63 @@ void bubble_sort(int arr[],int n){
 }
 
 int main(){
-    int i;
-    int arr1[5]={6,3,7,1,8};
-    selection_sort(arr1,5);
-    printf("\nArray is:\n");
-    for(i=0;i<5;i++){
-        printf("%d\t",arr1[i]);
+    int arr[100],n,i;
+    printf("Enter size of the array\n");
+    scanf("%d",&n);
+    printf("Enter array elements\n");
+    for(i=0;i<n;i++){
+        scanf("%d",&arr[i]);
     }
-    int arr2[5]={6,3,7,1,8};
-    insertion_sort(arr2,5);
     printf("\nArray is:\n");
-    for(i=0;i<5;i++){
-        printf("%d\t",arr2[i]);
-    }
-    int arr3[5]={6,3,7,1,8};
-    bubble_sort(arr3,5);
-    printf("\nArray is:\n");
-    for(i=0;i<5;i++){
-        printf("%d\t",arr3[i]);
+    for(i=0;i<n;i++){
+        printf("%d\t",arr[i]);
     }
 
+    int val,ind;
+    printf("Enter val and index of the element to be inserted\n");
+    scanf("%d %d",&val,&ind);
+    for(i=n-1;i>=ind;i++){
+        arr[i+1]=arr[i];
+    }
+    arr[ind]=val;
+    n+=1;
 
+    printf("\nArray is:\n");
+    for(i=0;i<n;i++){
+        printf("%d\t",arr[i]);
+    }
 
-    // int arr[100],n,i;
-    // printf("Enter size of the array\n");
-    // scanf("%d",&n);
-    // printf("Enter array elements\n");
-    // for(i=0;i<n;i++){
-    //     scanf("%d",&arr[i]);
-    // }
-    // printf("\nArray is:\n");
-    // for(i=0;i<n;i++){
-    //     printf("%d\t",arr[i]);
-    // }
+    printf("\nEnter index of the element to be deleted\n");
+    scanf("%d",&ind);
+    for(i=ind;i<n-1;i++){
+        arr[i]=arr[i+1];
+    }
+    n-=1;
+    printf("\nArray is:\n");
+    for(i=0;i<n;i++){
+        printf("%d\t",arr[i]);
+    }
+    printf("Enter the value to be searched in the array\n");
+    int x;
+    scanf("%d",&x);
+    int flag=linear_search(arr,n,x);
+    if (flag!=-1)
+    printf("Element is found at %d index",flag);
+    else
+    printf("\nElement not present");
 
-    // int val,ind;
-    // printf("Enter val and index of the element to be inserted\n");
-    // scanf("%d %d",&val,&ind);
-    // for(i=n-1;i>=ind;i++){
-    //     arr[i+1]=arr[i];
-    // }
-    // arr[ind]=val;
-    // n+=1;
-
-    // printf("\nArray is:\n");
-    // for(i=0;i<n;i++){
-    //     printf("%d\t",arr[i]);
-    // }
-
-    // printf("\nEnter index of the element to be deleted\n");
-    // scanf("%d",&ind);
-    // for(i=ind;i<n-1;i++){
-    //     arr[i]=arr[i+1];
-    // }
-    // n-=1;
-    // printf("\nArray is:\n");
-    // for(i=0;i<n;i++){
-    //     printf("%d\t",arr[i]);
-    // }
-    // printf("Enter the value to be searched in the array\n");
-    // int x;
-    // scanf("%d",&x);
-    // int flag=linear_search(arr,n,x);
-    // if (flag!=-1)
-    // printf("Element is found at %d index",flag);
-    // else
-    // printf("\nElement not present");
-
-    // bubble_sort(arr,n);
-    // printf("\nArray is:\n");
-    // for(i=0;i<n;i++){
-    //     printf("%d\t",arr[i]);
-    // }
+    bubble_sort(arr,n);
+    printf("\nArray is:\n");
+    for(i=0;i<n;i++){
+        printf("%d\t",arr[i]);
+    }
     return 0;
 }
 ```
 
 ## 2D Array
 
-```
+```C
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -257,7 +235,7 @@ int main(){
 
 ## Structure
 
-```
+```C
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -287,7 +265,7 @@ int main(){
 
 ## Stack
 
-```
+```C
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -358,7 +336,7 @@ int main(){
 
 ## Linked List
 
-```
+```C
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
@@ -632,7 +610,7 @@ int main()
 
 ### Using Linked List
 
-```
+```C
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -714,7 +692,7 @@ int main(){
 
 
 ## Doubly Linked List
-```
+```C
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
