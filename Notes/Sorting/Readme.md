@@ -689,7 +689,88 @@ int main(){
 }
 ```
 ### Using Array
+```
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
 
+typedef struct queue
+{
+    int data[100];
+    int front, rear;
+} queue;
+
+void init(queue *q)
+{
+    q->front = q->rear = -1;
+}
+
+void enqueue(queue *q)
+{
+    int x;
+    scanf("%d", &x);
+    if (q->rear == -1)
+    {
+        q->front = q->rear = 0;
+    }
+    else
+        q->rear += 1;
+    q->data[q->rear] = x;
+}
+
+int dequeue(queue *q)
+{
+    int x = q->data[q->front];
+    if (q->front == q->rear)
+        q->rear = q->front = -1;
+    else
+        q->front += 1;
+    return x;
+}
+
+void display(queue *q)
+{
+    for (int i = q->front; i <= q->rear; i++)
+    {
+        printf("%d\t", q->data[i]);
+    }
+    printf("\n");
+}
+
+int main()
+{
+    int choice;
+    queue q;
+    init(&q);
+    do
+    {
+        printf("Enter 1:Enqueue\t2:Dequeue\t3:Display\t4:Exit:\n");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+        case 1:
+            if (q.rear != 99)
+                enqueue(&q);
+            else
+                printf("Overflow\n");
+            break;
+        case 2:
+            if (q.rear != -1)
+                printf("%d\n", dequeue(&q));
+            else
+                printf("Underflow\n");
+            break;
+        case 3:
+            display(&q);
+            break;
+        case 4:
+            exit(0);
+            break;
+        }
+    } while (choice != 4);
+    return 0;
+}
+```
 
 ## Doubly Linked List
 ```C
