@@ -7,93 +7,120 @@
 ```C
 #include<stdio.h>
 #include<conio.h>
-void Insertion_Sort(int A[],int x){
+void Insertion_Sort(int arr[],int n){
     int i,j,temp;
-    for(i=1;i<x;i++){
-        temp=A[i];
-        for(j=i-1;j>=0 && A[j]>temp;j--){
-            A[j+1]=A[j];
+    for(i=1;i<n;i++){
+        temp=arr[i];
+        for(j=i-1;j>=0 && arr[j]>temp;j--){
+            arr[j+1]=arr[j];
         }
-        A[j+1]=temp;
+        arr[j+1]=temp;
     }
 }
-void Selection_Sort(int A[],int x){
-    int i,j,temp,min,idx;
-    for(i=0;i<x;i++){
-        min=A[i];
-        idx=i;
-        for(j=i+1;j<x;j++){
-            if (min>A[j]){
-            min=A[j];
-            idx=j;
+```
+
+```C
+void Insertion_Sort(int arr[],int n){
+    int i,j,temp;
+    for(i=1;i<n;i++){
+        temp=arr[i];
+        for(j=i-1;j>=0;j--){
+            if (arr[j]>temp){
+            arr[j+1]=arr[j];
+            }
         }
-        }
-        temp=A[i];
-        A[i]=A[idx];
-        A[idx]=temp;
+        arr[j+1]=temp;
     }
 }
-void Bubble_Sort(int A[],int x){
+```
+```C
+void Selection_Sort(int arr[],int n){
+    int i,j,temp,min;
+    for(i=0;i<n;i++){
+        min=i;
+        for(j=i+1;j<n;j++){
+            if (min>arr[j]){
+            min=arr[j];
+        }
+        }
+        temp=arr[i];
+        arr[i]=arr[min];
+        arr[min]=temp;
+    }
+}
+```
+```C
+void Bubble_Sort(int arr[],int n){
     int i,j,temp;
-    for(i=0;i<x;i++){
-        for(j=0;j<(x-i-1);j++){
-            if (A[j+1]<A[j]){
-                temp=A[j];
-                A[j]=A[j+1];
-                A[j+1]=temp;
+    for(i=0;i<n;i++){
+        for(j=0;j<(n-i-1);j++){
+            if (arr[j+1]<arr[j]){
+                temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
             }
         }
     }
 }
+```
+```C
 void main(){
-    int A[5],i;
+    int arr[100],i,n;
+    // printf("Enter number of elements to be inserted in the array");
+    // scanf("%d",&n);
     printf("Enter 5 elements in the array:\n");
     for(i=0;i<5;i++){
-        scanf("%d",&A[i]);
+        scanf("%d",&arr[i]);
     }
     printf("Array elements before sorting\n");
     for(i=0;i<5;i++){
-        printf("%d ",A[i]);
+        printf("%d ",arr[i]);
     }
     Insertion_Sort(A,5);
     printf("\nArray elements after sorting\n");
     for(i=0;i<5;i++){
-        printf("%d ",A[i]);
+        printf("%d ",arr[i]);
     }
-    Selection_Sort(A,5);
+    Selection_Sort(arr,5);
     printf("\nArray elements after sorting\n");
     for(i=0;i<5;i++){
-        printf("%d ",A[i]);
+        printf("%d ",arr[i]);
     }
-    Bubble_Sort(A,5);
+    Bubble_Sort(arr,5);
     printf("\nArray elements after sorting\n");
     for(i=0;i<5;i++){
-        printf("%d ",A[i]);
+        printf("%d ",arr[i]);
     }
     getch();
 }
 ```
-
-
+## Searching
+- Linear/ Sequential Search
+- Binary Search
+- Sorting 
+    - Insertion
+    - Selection
+    - Bubble
 
 ```C
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
 
-int linear_search(int arr[],int n,int x){
+int linear_search(int arr[],int n,int item){
     for(int i=0;i<n;i++){
-        if (arr[i]==x)
+        if (arr[i]==item)
         return i;
     }
     return -1;
 }
-int binary_search(int arr[],int i,int j,int x){
+
+int binary_search(int arr[],int i,int j,int item){
     if(i<=j){
         int mid=(i+j)/2;
-        if (arr[mid]==x)
+        if (arr[mid]==item)
         return mid;
-        else if (arr[mid]<x)
+        else if (arr[mid]<item)
         return binary_search(arr,mid+1,j,x);
         else
         return binary_search(arr,i,mid-1,x);
@@ -113,24 +140,21 @@ void insertion_sort(int arr[],int n){
             else
             break;
         }
-    }    
+    }
 }
 void selection_sort(int arr[],int n){
-    int temp,mini;
+    int temp,min;
     for(int i=0;i<n;i++){
-        mini=i;
+        min=i;
         for(int j=i;j<n;j++){
-            if (arr[j]<arr[mini]){
-                mini=j;
+            if (arr[j]<arr[min]){
+                min=j;
             }
         }
         temp=arr[i];
-        arr[i]=arr[mini];
-        arr[mini]=temp;
-
-        
+        arr[i]=arr[min];
+        arr[min]=temp;
     }
-    
 }
 void bubble_sort(int arr[],int n){
     int temp;
@@ -143,7 +167,6 @@ void bubble_sort(int arr[],int n){
             }
         }
     }
-    
 }
 
 int main(){
@@ -158,9 +181,8 @@ int main(){
     for(i=0;i<n;i++){
         printf("%d\t",arr[i]);
     }
-
     int val,ind;
-    printf("Enter val and index of the element to be inserted\n");
+    printf("Enter value and index of the element to be inserted\n");
     scanf("%d %d",&val,&ind);
     for(i=n-1;i>=ind;i++){
         arr[i+1]=arr[i];
@@ -178,15 +200,17 @@ int main(){
     for(i=ind;i<n-1;i++){
         arr[i]=arr[i+1];
     }
-    n-=1;
+    n=n-1;
+
     printf("\nArray is:\n");
     for(i=0;i<n;i++){
         printf("%d\t",arr[i]);
     }
+
     printf("Enter the value to be searched in the array\n");
-    int x;
-    scanf("%d",&x);
-    int flag=linear_search(arr,n,x);
+    int item;
+    scanf("%d",&item);
+    int flag=linear_search(arr,n,item);
     if (flag!=-1)
     printf("Element is found at %d index",flag);
     else
@@ -232,7 +256,6 @@ int main(){
 }
 ```
 
-
 ## Structure
 
 ```C
@@ -250,7 +273,7 @@ int main(){
     int i;
     student s[5];
     for(i=0;i<5;i++){
-        printf("Enter student name,roll no, sap id, phone no:\n");
+        printf("Enter Student's name,roll no, sap id, phone no:\n");
         scanf("%s%d%d%d",&s[i].name,&s[i].roll,&s[i].sap,&s[i].phone);
     }
 
@@ -334,7 +357,7 @@ int main(){
 }
 ```
 
-## Linked List
+## Linked List Implimentation
 
 ```C
 #include <stdio.h>
@@ -345,7 +368,7 @@ typedef struct node
 {
     int data;
     struct node *next;
-} node;
+}node;
 
 void display(node *head)
 {
@@ -383,7 +406,7 @@ int count(node *head)
     int c = 0;
     while (head != NULL)
     {
-        c++;
+        c=c+1;
         head = head->next;
     }
     return c;
@@ -405,6 +428,18 @@ node *concat(node *head1, node *head2)
         }
         r->next = head2;
         return head1;
+
+        // Alternative
+        // node *r;
+        // r = head2;
+        // while (r->next != NULL)
+        // {
+        //     r = r->next;
+        // }
+        // r->next = head1;
+        // return head2;
+
+
     }
 }
 
@@ -423,6 +458,7 @@ node *insertion_beg(node *head, int x)
     }
     return head;
 }
+
 node *insertion_end(node *head, int x)
 {
     node *q;
@@ -443,6 +479,7 @@ node *insertion_end(node *head, int x)
     }
     return head;
 }
+
 node *insertion_key(node *head, int x, int key)
 {
     node *q;
@@ -459,6 +496,7 @@ node *insertion_key(node *head, int x, int key)
     p->next = q;
     return head;
 }
+
 node *insertion_loc(node *head, int x, int loc)
 {
     node *q;
@@ -475,6 +513,7 @@ node *insertion_loc(node *head, int x, int loc)
     p->next = q;
     return head;
 }
+
 node *deletion_beg(node *head)
 {
     node *q;
@@ -485,6 +524,7 @@ node *deletion_beg(node *head)
     free(q);
     return head;
 }
+
 node *deletion_end(node *head)
 {
     node *q;
@@ -499,6 +539,7 @@ node *deletion_end(node *head)
     free(q);
     return head;
 }
+
 node *deletion_key(node *head, int key)
 {
     node *q;
@@ -508,10 +549,11 @@ node *deletion_key(node *head, int key)
     {
         q = q->next;
     }
-    q->next = q->next->next;
     printf("Deleted element is %d", q->next->data);
+    q->next = q->next->next;
     return head;
 }
+
 node *deletion_loc(node *head, int loc)
 {
     node *q;
@@ -521,8 +563,8 @@ node *deletion_loc(node *head, int loc)
     {
         q = q->next;
     }
-    q->next = q->next->next;
     printf("Deleted element is %d", q->next->data);
+    q->next = q->next->next;
     return head;
 }
 
@@ -533,7 +575,7 @@ int main()
     int choice;
     do
     {
-        printf("1:Create LL\t2:Display\t3:Count\t4:Insert beg\t5:Insert end\t6:Insert key\t7:Insert loc\t8:Del beg\t9:Del end\t10:Del key\t11:Del loc\t12:Create 2nd LL\t13:Display 2nd LL\14:Concat 1 and 2 LL\t15:item to be searched:\n");
+        printf("1:Create Linked List\t 2:Display\t 3:Count\t 4:Insert beginning\t 5:Insert at the end\t 6:Insert key\t 7:Insert at the location location\t 8:Delete at the beginning\t 9:Delete end\t  10:Delete key\t11:Delete loc\t 12:Create 2nd Linked List\t 13:Display 2nd Linked List\t 14:Concat 1 and 2 Linked List\t 15:item to be searched:\n");
         scanf("%d", &choice);
         switch (choice)
         {
@@ -601,14 +643,13 @@ int main()
         exit(0);
         }
     }while (choice!=16);
-    
+
     return 0;
 }
 ```
 
-## Queue
-
-### Using Linked List
+## Queue Implimentation
+### 1. Using Linked List
 
 ```C
 #include<stdio.h>
@@ -639,12 +680,14 @@ void enqueue(queue *q,int x){
     {
         (q->rear)->next=p;
         q->rear=p;
+        // Or
+        // q->rear = q->rear->next;
     }
 
 }
 
 int dequeue(queue *q){
-    int a= (q->front)->data;
+    int a=(q->front)->data;
     node *r=q->front;
     if (q->front==q->rear)
     q->front=q->rear=NULL;
@@ -669,7 +712,7 @@ int main(){
     queue q;
     int choice;
     do{
-        printf("Enter 1 ...");
+        printf("Enter 1:Enqueue 2:Dequeue 3:Display 4:Exit\n");
         scanf("%d",&choice);
         switch (choice){
             case 1: printf("Enter value to be inserted");
@@ -688,8 +731,10 @@ int main(){
     return 0;
 }
 ```
-### Using Array
-```
+
+### 2. Using Array
+
+```C
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
@@ -737,6 +782,22 @@ void display(queue *q)
     printf("\n");
 }
 
+void isfull(queue *q){
+    if (q->rear == 99)// MAX-1
+    {
+        return 1;
+    }
+    return 0;
+}
+
+void isempty(queue *q){
+    if (q->rear == -1)
+    {
+        return 1;
+    }
+    return 0;
+}
+
 int main()
 {
     int choice;
@@ -744,7 +805,7 @@ int main()
     init(&q);
     do
     {
-        printf("Enter 1:Enqueue\t2:Dequeue\t3:Display\t4:Exit:\n");
+        printf("Enter 1:Enqueue\t 2:Dequeue\t 3:Display\t 4:Exit:\n");
         scanf("%d", &choice);
         switch (choice)
         {
@@ -755,7 +816,7 @@ int main()
                 printf("Overflow\n");
             break;
         case 2:
-            if (q.rear != -1)
+            if (q.rear != -1 || q.front !=-1)
                 printf("%d\n", dequeue(&q));
             else
                 printf("Underflow\n");
@@ -773,6 +834,7 @@ int main()
 ```
 
 ## Doubly Linked List
+
 ```C
 #include<stdio.h>
 #include<conio.h>
@@ -795,7 +857,7 @@ node *create(int n){
         q->next=NULL;
         q->prev=NULL;
         if (head==NULL)
-        head=q=p;
+        head=p=q;
         else
         {
             p->next=q;
@@ -854,3 +916,82 @@ int main(){
     return 0;
 }
 ```
+
+
+## Topics
+
+- Address Calculation 
+    - 1d
+    - 2d
+        - Row Major Order
+        - Column Major Order
+- Stack
+- Expression Conversion
+    - Tabular Method
+    - Algorithmic Method
+    - Infix to Postfix, Prefix
+- Dynamic Memory Allocation
+    - malloc()
+    - calloc()
+    - realloc()
+    - free()
+
+- Linked List
+- Singly/ Simple LL
+- Circular LL
+- Doubly LL
+- Circular Doubly LL
+- Queue
+```
+front = rear-1 (Queue is empty)
+front = rear (One element)
+rear = rear+1 (After insertion)
+front = front+1 (After deletion)
+rear = MAX -1 (Queue is full)
+rear =1 || front ==-1 (Queue is empty)
+```
+
+```C
+# define MAX 100
+typedef struct Queue
+{
+    int data[MAX];
+    int R,F;
+}Queue;
+
+```
+- Graphs
+    - Weighted Graphs
+    - Unweighted Graphs
+    - Directed Graphs
+    - Undirected Graphs
+    - Connected Graph
+    - Complete Graph
+    - Sub Graph
+    - Paths
+    - Cycles
+    - Degree of vertex
+        - Indegree
+        - Outdegree
+    - Representation of Graphs
+        - Adjacency List Representation
+        - Adjacency Matrix Representation
+    - Graph Traversal
+        - BFS
+        - DFS
+
+- Trees
+    - Binary Tree
+        - Representation using Array
+        - Representation using Linked List
+        - Complete Binary Tree
+            - BT Traversal
+            - Inorder (LNR)
+            - Postorder (LRN)
+            - Preorder (NLR)
+        - Contruct using preorder and inorder
+    - AVL Tree
+    - Spanning Tree
+        - Minimal Spanning Tree/ Minimum Cost Spanning Tree (MST)
+            - Prims
+            - Kruskal
