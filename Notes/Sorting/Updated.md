@@ -17,7 +17,9 @@ void Insertion_Sort(int arr[],int n){
         arr[j+1]=temp;
     }
 }
+```
 
+```C
 void Insertion_Sort(int arr[],int n){
     int i,j,temp;
     for(i=1;i<n;i++){
@@ -30,7 +32,8 @@ void Insertion_Sort(int arr[],int n){
         arr[j+1]=temp;
     }
 }
-
+```
+```C
 void Selection_Sort(int arr[],int n){
     int i,j,temp,min;
     for(i=0;i<n;i++){
@@ -45,6 +48,8 @@ void Selection_Sort(int arr[],int n){
         arr[min]=temp;
     }
 }
+```
+```C
 void Bubble_Sort(int arr[],int n){
     int i,j,temp;
     for(i=0;i<n;i++){
@@ -57,7 +62,8 @@ void Bubble_Sort(int arr[],int n){
         }
     }
 }
-
+```
+```C
 void main(){
     int arr[100],i,n;
     // printf("Enter number of elements to be inserted in the array");
@@ -88,6 +94,13 @@ void main(){
     getch();
 }
 ```
+## Searching
+- Linear/ Sequential Search
+- Binary Search
+- Sorting 
+    - Insertion
+    - Selection
+    - Bubble
 
 ```C
 #include<stdio.h>
@@ -344,7 +357,7 @@ int main(){
 }
 ```
 
-## Linked List
+## Linked List Implimentation
 
 ```C
 #include <stdio.h>
@@ -635,9 +648,8 @@ int main()
 }
 ```
 
-## Queue
-
-### Using Linked List
+## Queue Implimentation
+### 1. Using Linked List
 
 ```C
 #include<stdio.h>
@@ -720,7 +732,7 @@ int main(){
 }
 ```
 
-### Using Array
+### 2. Using Array
 
 ```C
 #include <stdio.h>
@@ -768,6 +780,22 @@ void display(queue *q)
         printf("%d\t", q->data[i]);
     }
     printf("\n");
+}
+
+void isfull(queue *q){
+    if (q->rear == 99)// MAX-1
+    {
+        return 1;
+    }
+    return 0;
+}
+
+void isempty(queue *q){
+    if (q->rear == -1)
+    {
+        return 1;
+    }
+    return 0;
 }
 
 int main()
@@ -888,3 +916,82 @@ int main(){
     return 0;
 }
 ```
+
+
+## Topics
+
+- Address Calculation 
+    - 1d
+    - 2d
+        - Row Major Order
+        - Column Major Order
+- Stack
+- Expression Conversion
+    - Tabular Method
+    - Algorithmic Method
+    - Infix to Postfix, Prefix
+- Dynamic Memory Allocation
+    - malloc()
+    - calloc()
+    - realloc()
+    - free()
+
+- Linked List
+- Singly/ Simple LL
+- Circular LL
+- Doubly LL
+- Circular Doubly LL
+- Queue
+```
+front = rear-1 (Queue is empty)
+front = rear (One element)
+rear = rear+1 (After insertion)
+front = front+1 (After deletion)
+rear = MAX -1 (Queue is full)
+rear =1 || front ==-1 (Queue is empty)
+```
+
+```C
+# define MAX 100
+typedef struct Queue
+{
+    int data[MAX];
+    int R,F;
+}Queue;
+
+```
+- Graphs
+    - Weighted Graphs
+    - Unweighted Graphs
+    - Directed Graphs
+    - Undirected Graphs
+    - Connected Graph
+    - Complete Graph
+    - Sub Graph
+    - Paths
+    - Cycles
+    - Degree of vertex
+        - Indegree
+        - Outdegree
+    - Representation of Graphs
+        - Adjacency List Representation
+        - Adjacency Matrix Representation
+    - Graph Traversal
+        - BFS
+        - DFS
+
+- Trees
+    - Binary Tree
+        - Representation using Array
+        - Representation using Linked List
+        - Complete Binary Tree
+            - BT Traversal
+            - Inorder (LNR)
+            - Postorder (LRN)
+            - Preorder (NLR)
+        - Contruct using preorder and inorder
+    - AVL Tree
+    - Spanning Tree
+        - Minimal Spanning Tree/ Minimum Cost Spanning Tree (MST)
+            - Prims
+            - Kruskal
