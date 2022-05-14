@@ -11,4 +11,4 @@
 <br>
 [Sorting](/Notes/Sorting/Readme.md)
 
-Want to Contribute? Fill up this <a href="https://forms.gle/ZgpJzQtSPwYMsTUJA">form</a>
+Want to Contribute? Fill up this <a href="https://forms.gle/ZgpJzQtSPwYMsTUJA">for</a>[m](/Notes/Sorting/Updated.md)
