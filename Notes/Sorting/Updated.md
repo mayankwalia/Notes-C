@@ -20,32 +20,36 @@ void Insertion_Sort(int arr[],int n){
 ```
 
 ```C
+#include<stdio.h>
+#include<conio.h>
 void Insertion_Sort(int arr[],int n){
     int i,j,temp;
     for(i=1;i<n;i++){
-        temp=arr[i];
-        for(j=i-1;j>=0;j--){
-            if (arr[j]>temp){
+        temp=i;
+        for(j=i-1;j>=0 && arr[j]>temp;j--){
             arr[j+1]=arr[j];
-            }
         }
         arr[j+1]=temp;
     }
 }
 ```
+
 ```C
 void Selection_Sort(int arr[],int n){
-    int i,j,temp,min;
+    int i,j,temp,k;
     for(i=0;i<n;i++){
-        min=i;
+        k=i;
         for(j=i+1;j<n;j++){
-            if (min>arr[j]){
-            min=arr[j];
+            if (arr[j]<arr[k]){
+            k=j;
         }
         }
-        temp=arr[i];
-        arr[i]=arr[min];
-        arr[min]=temp;
+        if (k!=i)
+        {
+            temp=arr[i];
+            arr[i]=arr[min];
+            arr[min]=temp;
+        }
     }
 }
 ```
@@ -914,6 +918,37 @@ int main(){
         }
     }while (choice!=4);
     return 0;
+}
+```
+
+## Delete an element from the array
+```C
+#include<stdio.h>
+int main(){
+    int arr[100],n,i;
+    printf("Enter the number of elements in the array");
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    int pos;
+    printf("Enter the position at which the element is to be deleted");
+    scanf("%d",&pos);
+    for(i=pos-1;i<n-1;i++){
+        arr[i]=arr[i+1];
+    }
+    n=n-1;
+    int val,pos;
+    printf("Enter the value and position at which the element is to be inserted");
+    scanf("%d%d",&val,&pos);
+    for(i=n-1;i>pos-1;i--){
+        arr[i+1]=arr[i];
+    }
+    arr[pos-1]=val;
+    n=n+1;
+    for(i=0;i<n;i++){
+        printf("%d\t",arr[i]);
+    }
 }
 ```
 
